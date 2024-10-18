@@ -4,12 +4,10 @@ body {
     text-align: center;
     padding: 20px;
 }
-
 h1 {
     color: #2c3e50;
     font-size: 2.5rem;
 }
-
 .container {
     margin: 0 auto;
     width: 80%;
@@ -19,11 +17,9 @@ h1 {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
-
 .container:hover {
     transform: scale(1.02);
 }
-
 .reveal-button {
     background-color: #3498db;
     color: white;
@@ -34,11 +30,9 @@ h1 {
     font-size: 18px;
     transition: background-color 0.3s ease;
 }
-
 .reveal-button:hover {
     background-color: #2980b9;
 }
-
 select {
     padding: 10px;
     border-radius: 5px;
@@ -46,7 +40,6 @@ select {
     border: 1px solid #bdc3c7;
     margin: 15px 0;
 }
-
 .candidate-list {
     display: none;
     margin-top: 20px;
@@ -54,13 +47,11 @@ select {
     transform: translateY(-20px);
     transition: all 0.5s ease;
 }
-
 .candidate-list.active {
     display: block;
     opacity: 1;
     transform: translateY(0);
 }
-
 .candidate {
     background-color: #ecf0f1;
     padding: 15px;
@@ -69,7 +60,6 @@ select {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
 }
-
 .candidate:hover {
     background-color: #bdc3c7;
 }
