@@ -1,22 +1,3 @@
-/* CSS untuk gambar simbol di bagian atas */
-.symbol-container {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.symbol-image {
-    width: 150px;
-    height: auto;
-    border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.symbol-image:hover {
-    transform: scale(1.1);
-}
-
-/* Styling dasar lainnya tetap sama */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f0f4f8;
@@ -43,62 +24,6 @@ h1 {
     transform: scale(1.02);
 }
 
-/* Animasi Zoom-in untuk Kandidat */
-@keyframes zoomIn {
-    0% {
-        transform: scale(0.5);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-.candidate {
-    background-color: #ecf0f1;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-    opacity: 0;
-    transform: scale(0.5);
-}
-
-.candidate-list.active .candidate {
-    animation: zoomIn 0.6s forwards;
-}
-
-.candidate:nth-child(1) {
-    animation-delay: 0.2s;
-}
-
-.candidate:nth-child(2) {
-    animation-delay: 0.4s;
-}
-
-.candidate:nth-child(3) {
-    animation-delay: 0.6s;
-}
-
-.candidate:nth-child(4) {
-    animation-delay: 0.8s;
-}
-
-.candidate:hover {
-    background-color: #bdc3c7;
-}
-
-/* Dropdown styling */
-select {
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 16px;
-    border: 1px solid #bdc3c7;
-    margin: 15px 0;
-}
-
 .reveal-button {
     background-color: #3498db;
     color: white;
@@ -112,4 +37,39 @@ select {
 
 .reveal-button:hover {
     background-color: #2980b9;
+}
+
+select {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: 1px solid #bdc3c7;
+    margin: 15px 0;
+}
+
+.candidate-list {
+    display: none;
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.5s ease;
+}
+
+.candidate-list.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.candidate {
+    background-color: #ecf0f1;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.candidate:hover {
+    background-color: #bdc3c7;
 }
