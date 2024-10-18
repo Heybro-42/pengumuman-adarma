@@ -4,62 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pengumuman Kandidat Terpilih</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f4f8;
-            text-align: center;
-            padding: 20px;
-        }
-        h1 {
-            color: #2c3e50;
-            font-size: 2.5rem;
-        }
-        .container {
-            margin: 0 auto;
-            width: 80%;
-            background-color: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-        }
-        .container:hover {
-            transform: scale(1.02);
-        }
-        select {
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 16px;
-            border: 1px solid #bdc3c7;
-            margin: 15px 0;
-        }
-        .candidate-list {
-            display: none;
-            margin-top: 20px;
-            opacity: 0;
-            transform: translateY(-20px);
-            transition: all 0.5s ease;
-        }
-        .candidate-list.active {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .candidate {
-            background-color: #ecf0f1;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease;
-        }
-        .candidate:hover {
-            background-color: #bdc3c7;
-        }
-    </style>
-    <!-- Tambahkan library canvas-confetti -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="style.css"> <!-- Link to CSS file -->
 </head>
 <body>
 
@@ -109,52 +54,8 @@
         </div>
     </div>
 
-    <script>
-        function selectDivision() {
-            // Sembunyikan semua daftar kandidat
-            var lists = document.querySelectorAll('.candidate-list');
-            lists.forEach(list => {
-                list.classList.remove('active');
-            });
-
-            // Tampilkan daftar kandidat sesuai divisi yang dipilih
-            var selectedDivision = document.getElementById("divisionSelect").value;
-            if (selectedDivision === "pengabdian") {
-                document.getElementById("pengabdianList").classList.add('active');
-                launchConfetti();
-            } else if (selectedDivision === "perhubungan") {
-                document.getElementById("perhubunganList").classList.add('active');
-                launchConfetti();
-            } else if (selectedDivision === "media" ) {
-                document.getElementById("mediaList").classList.add('active');
-                launchConfetti();
-            }
-        }
-
-        function launchConfetti() {
-            var end = Date.now() + 5 * 1000;
-
-            // Menghasilkan konfeti secara acak selama 5 detik
-            (function frame() {
-                confetti({
-                    particleCount: 7,
-                    angle: 60,
-                    spread: 55,
-                    origin: { x: 0 }
-                });
-                confetti({
-                    particleCount: 7,
-                    angle: 120,
-                    spread: 55,
-                    origin: { x: 1 }
-                });
-
-                if (Date.now() < end) {
-                    requestAnimationFrame(frame);
-                }
-            }());
-        }
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script> <!-- Link to JS file -->
 
 </body>
 </html>
