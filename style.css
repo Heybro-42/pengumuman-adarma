@@ -1,65 +1,45 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f4f8;
-    text-align: center;
-    padding: 20px;
+function selectDivision() {
+    // Sembunyikan semua daftar kandidat
+    var lists = document.querySelectorAll('.candidate-list');
+    lists.forEach(list => {
+        list.classList.remove('active');
+    });
+
+    // Tampilkan daftar kandidat sesuai divisi yang dipilih
+    var selectedDivision = document.getElementById("divisionSelect").value;
+    if (selectedDivision === "pengabdian") {
+        document.getElementById("pengabdianList").classList.add('active');
+        launchConfetti();  // Panggil fungsi konfeti
+    } else if (selectedDivision === "perhubungan") {
+        document.getElementById("perhubunganList").classList.add('active');
+        launchConfetti();  // Panggil fungsi konfeti
+    } else if (selectedDivision === "media") {
+        document.getElementById("mediaList").classList.add('active');
+        launchConfetti();  // Panggil fungsi konfeti
+    }
 }
-h1 {
-    color: #2c3e50;
-    font-size: 2.5rem;
-}
-.container {
-    margin: 0 auto;
-    width: 80%;
-    background-color: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-.container:hover {
-    transform: scale(1.02);
-}
-.reveal-button {
-    background-color: #3498db;
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 18px;
-    transition: background-color 0.3s ease;
-}
-.reveal-button:hover {
-    background-color: #2980b9;
-}
-select {
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 16px;
-    border: 1px solid #bdc3c7;
-    margin: 15px 0;
-}
-.candidate-list {
-    display: none;
-    margin-top: 20px;
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: all 0.5s ease;
-}
-.candidate-list.active {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-}
-.candidate {
-    background-color: #ecf0f1;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-}
-.candidate:hover {
-    background-color: #bdc3c7;
+
+// Fungsi untuk memunculkan animasi konfeti
+function launchConfetti() {
+    var end = Date.now() + 5 * 1000;  // Durasi konfeti 5 detik
+
+    // Fungsi untuk menghasilkan konfeti dari dua sisi
+    (function frame() {
+        confetti({
+            particleCount: 7,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 }  // Konfeti keluar dari kiri
+        });
+        confetti({
+            particleCount: 7,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 }  // Konfeti keluar dari kanan
+        });
+
+        if (Date.now() < end) {
+            requestAnimationFrame(frame);
+        }
+    }());
 }
