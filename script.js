@@ -1,44 +1,36 @@
-function selectDivision() {
-    // Sembunyikan semua daftar kandidat
-    var lists = document.querySelectorAll('.candidate-list');
-    lists.forEach(list => {
-        list.classList.remove('active');
-    });
+document.getElementById('revealButton').addEventListener('click', function() {
+    // Tampilkan nama kandidat
+    document.getElementById('candidates').style.display = 'block';
 
-    // Tampilkan daftar kandidat sesuai divisi yang dipilih
-    var selectedDivision = document.getElementById("divisionSelect").value;
-    if (selectedDivision === "pengabdian") {
-        document.getElementById("pengabdianList").classList.add('active');
-        launchConfetti();
-    } else if (selectedDivision === "perhubungan") {
-        document.getElementById("perhubunganList").classList.add('active');
-        launchConfetti();
-    } else if (selectedDivision === "media") {
-        document.getElementById("mediaList").classList.add('active');
-        launchConfetti();
+    // Munculkan animasi konfeti
+    startConfetti();
+
+    // Sembunyikan tombol setelah diklik
+    this.style.display = 'none';
+});
+
+function startConfetti() {
+    const confettiContainer = document.getElementById('confetti-container');
+    const confettiColors = ['#ff0', '#f00', '#0f0', '#00f', '#ff7f50', '#ff1493'];
+
+    for (let i = 0; i < 100; i++) {
+        const confettiPiece = document.createElement('div');
+        confettiPiece.style.position = 'absolute';
+        confettiPiece.style.width = '10px';
+        confettiPiece.style.height = '10px';
+        confettiPiece.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+        confettiPiece.style.top = `${Math.random() * 100}vh`;
+        confettiPiece.style.left = `${Math.random() * 100}vw`;
+        confettiPiece.style.transform = `rotate(${Math.random() * 360}deg)`;
+        confettiContainer.appendChild(confettiPiece);
+
+        // Animasikan konfeti jatuh
+        confettiPiece.animate([
+            { transform: `translateY(0px) rotate(${Math.random() * 360}deg)` },
+            { transform: `translateY(100vh) rotate(${Math.random() * 360}deg)` }
+        ], {
+            duration: Math.random() * 3000 + 2000,
+            iterations: 1
+        });
     }
-}
-
-// Fungsi untuk memunculkan animasi konfeti
-function launchConfetti() {
-    var duration = 5 * 1000; // Durasi 5 detik
-    var animationEnd = Date.now() + duration;
-    var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
-
-    function randomInRange(min, max) {
-        return Math.random() * (max - min) + min;
-    }
-
-    var interval = setInterval(function() {
-        var timeLeft = animationEnd - Date.now();
-
-        if (timeLeft <= 0) {
-            return clearInterval(interval);
-        }
-
-        var particleCount = 50 * (timeLeft / duration);
-        // since particles fall down, start a bit higher than random
-        confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
-        confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
-    }, 250);
 }
