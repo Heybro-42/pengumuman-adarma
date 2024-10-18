@@ -4,52 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pengumuman Kandidat Terpilih</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Library Canvas Confetti -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <div class="container">
+    <div class="announcement-container">
         <h1>Pengumuman Kandidat Terpilih</h1>
-        <p>Pilih divisi untuk melihat kandidat yang terpilih:</p>
-        
-        <!-- Dropdown untuk memilih divisi -->
-        <select id="divisionSelect" onchange="selectDivision()">
-            <option value="">-- Pilih Divisi --</option>
-            <option value="pengabdian">Divisi Pengabdian</option>
-            <option value="perhubungan">Divisi Perhubungan</option>
-            <option value="media">Divisi Media dan Komunikasi</option>
-        </select>
-
-        <!-- Daftar Kandidat untuk Divisi Pengabdian -->
-        <div class="candidate-list" id="pengabdianList">
-            <h3>Kandidat Terpilih untuk Divisi Pengabdian</h3>
-            <div class="candidate">1. Nama Kandidat E</div>
-            <div class="candidate">2. Nama Kandidat F</div>
-            <div class="candidate">3. Nama Kandidat G</div>
-            <div class="candidate">4. Nama Kandidat H</div>
+        <p>Klik tombol di bawah ini untuk melihat kandidat terpilih.</p>
+        <button id="revealButton">Lihat Kandidat Terpilih</button>
+    </div>
+    <div id="confetti-container"></div>
+    <div class="candidates-container" id="candidates" style="display:none;">
+        <h2>Kandidat Terpilih:</h2>
+        <div class="division">
+            <h3>Divisi Pengabdian</h3>
+            <p>Alya Yoeriza Putri</p>
+            <p>Daffa Farizqi Rabbani</p>
+            <p>Erikka Nasya Dilla</p>
+            <p>Farrel Ananda Wibowo</p>
+            <p>Maharani Hafizhah</p>
+            <p>Nuraini Whidi Astuti</p>
+            <p>Eolima Tertia Fawwaz</p>
+            <p>Rachel Adellia</p>
         </div>
-
-        <!-- Daftar Kandidat untuk Divisi Perhubungan -->
-        <div class="candidate-list" id="perhubunganList">
-            <h3>Kandidat Terpilih untuk Divisi Perhubungan</h3>
-            <div class="candidate">1. Nama Kandidat I</div>
-            <div class="candidate">2. Nama Kandidat J</div>
-            <div class="candidate">3. Nama Kandidat K</div>
-            <div class="candidate">4. Nama Kandidat L</div>
+        <div class="division">
+            <h3>Divisi Perhubungan</h3>
+            <p>Ahmad Dimas</p>
         </div>
-
-        <!-- Daftar Kandidat untuk Divisi Media dan Komunikasi -->
-        <div class="candidate-list" id="mediaList">
-            <h3>Kandidat Terpilih untuk Divisi Media dan Komunikasi</h3>
-            <div class="candidate">1. Nama Kandidat A</div>
-            <div class="candidate">2. Nama Kandidat B</div>
-            <div class="candidate">3. Nama Kandidat C</div>
-            <div class="candidate">4. Nama Kandidat D</div>
+        <div class="division">
+            <h3>Divisi Media dan Komunikasi</h3>
+            <p>Adellia Rahmasista</p>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
